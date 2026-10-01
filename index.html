@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rajib Digital Centre | Online Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F6FC;--surface:#FFFFFF;--ink:#0F1C3A;--muted:#46557A;--blue:#123C9C;--red:#D81B28;--yellow:#FFD83A;--line:#D3DBEE;--on-blue:#FFFFFF;--green:#168F4A;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1226;--surface:#131D3A;--ink:#EDF1FB;--muted:#A9B5D3;--blue:#6E94FF;--red:#FF6B74;--line:#26345C;--on-blue:#0B1226;--green:#3BC878}}
+:root[data-theme="dark"]{--bg:#0B1226;--surface:#131D3A;--ink:#EDF1FB;--muted:#A9B5D3;--blue:#6E94FF;--red:#FF6B74;--line:#26345C;--on-blue:#0B1226;--green:#3BC878}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 "Poppins",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;padding:16px 0;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:1.1rem;line-height:1.2}
+.mark{width:42px;height:42px;border-radius:12px;background:var(--yellow);color:#D81B28;display:grid;place-items:center;font-weight:700;font-size:1.5rem;box-shadow:inset 0 0 0 3px var(--blue)}
+nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-weight:500}
+nav a:hover{color:var(--ink)}
+.hero{padding:30px 0 44px}
+.hero h1{margin:0;font-size:clamp(2.3rem,8vw,5rem);line-height:1.06;font-weight:700;letter-spacing:-.02em}
+.hero h1 span{color:var(--red)}
+.tag{display:inline-block;background:var(--yellow);color:#0F1C3A;font-weight:600;padding:8px 18px;border-radius:12px;margin:22px 0 26px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:13px 24px;border-radius:999px;font:600 1rem "Poppins",sans-serif;text-decoration:none;background:var(--green);color:#fff;border:0;cursor:pointer}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+section{padding:50px 0;border-top:1px solid var(--line)}
+h2{margin:0 0 6px;font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.2}
+.sub{margin:0 0 24px;color:var(--muted)}
+h3.grp{margin:26px 0 12px;font-size:1.05rem;color:var(--muted);font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.card{font:500 1rem/1.35 "Poppins",sans-serif;text-align:left;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--blue);border-radius:14px;padding:14px 16px;cursor:pointer;display:flex;gap:10px;align-items:center;min-height:64px}
+.card:hover{border-color:var(--blue);transform:translateY(-1px)}
+.card .ic{font-size:1.5rem}
+.card.q{border-left-color:var(--red)}
+.card.s{background:var(--yellow);color:#0F1C3A;border-color:var(--yellow);border-left-color:var(--blue);font-weight:600}
+dialog{border:0;border-radius:20px;padding:0;width:min(520px,calc(100% - 24px));max-height:calc(100% - 24px);background:var(--surface);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+dialog::backdrop{background:rgba(8,14,34,.6)}
+.dh{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 22px;background:var(--blue);color:var(--on-blue)}
+.dh h3{margin:0;font-size:1.15rem}
+.x{background:transparent;border:0;color:inherit;font-size:1.8rem;line-height:1;cursor:pointer;padding:0 4px}
+form{padding:20px 22px 24px;display:grid;gap:14px}
+label{display:grid;gap:5px;font-weight:500;font-size:.95rem}
+input,select,textarea{font:400 1rem "Poppins",sans-serif;padding:11px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+textarea{min-height:80px;resize:vertical}
+.docs{margin:0;padding:14px 22px 0}
+.docs h4{margin:0 0 6px;font-size:1rem;color:var(--blue)}
+.docs ol{margin:0;padding-left:1.3em}
+.hint{margin:0;color:var(--muted);font-size:.88rem}
+.contact{background:var(--blue);color:var(--on-blue);border-radius:22px;padding:30px}
+.contact h2{color:inherit}
+.contact a.big{display:block;font-weight:700;font-size:clamp(1.2rem,4.5vw,1.9rem);word-break:break-all;margin:6px 0}
+.contact .btn{margin-top:14px}
+.addr{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.35)}
+#ty{width:min(380px,calc(100% - 24px))}
+.thanks{padding:30px 24px 26px;text-align:center}
+.thanks h3{margin:12px 0 6px;font-size:1.6rem}
+.thanks p{margin:0 0 20px;color:var(--muted)}
+.ok{width:64px;height:64px;border-radius:50%;background:var(--green);color:#fff;font-size:2rem;display:grid;place-items:center;margin:0 auto}
+.thanks .btn{margin:0 4px 10px;display:inline-block}
+footer{padding:28px 0 44px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+@media (max-width:560px){nav{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="#top"><span class="mark">R</span>Rajib Digital Centre</a>
+    <nav><a href="#services">Services</a><a href="#schemes">Schemes</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <h1>Rajib <span>Digital</span> Centre</h1>
+      <div class="tag">All government and private online services in one place</div>
+      <div class="btns">
+        <a class="btn" href="#services">Choose a service</a>
+        <a class="btn alt" href="#schemes">Documents for schemes</a>
+      </div>
+    </div>
+
+    <section id="services">
+      <h2>Our services</h2>
+      <p class="sub">Tap a service, fill in the form, and your request goes straight to our WhatsApp.</p>
+      <h3 class="grp">Payments and bookings</h3>
+      <div class="cards" id="g-q"></div>
+      <h3 class="grp">Cards, land and certificates</h3>
+      <div class="cards" id="g-c"></div>
+      <h3 class="grp">Documents and other help</h3>
+      <div class="cards" id="g-d"></div>
+    </section>
+
+    <section id="schemes">
+      <h2>Schemes and required documents</h2>
+      <p class="sub">Tap a scheme to see what to bring and to send your details.</p>
+      <div class="cards" id="g-s"></div>
+    </section>
+
+    <section id="contact">
+      <div class="contact">
+        <h2>Contact us</h2>
+        <a class="big" href="https://wa.me/919564185647">WhatsApp: 9564185647</a>
+        <a class="big" href="mailto:rajibm9564@gmail.com">rajibm9564@gmail.com</a>
+        <a class="btn" href="https://wa.me/919564185647">Message us on WhatsApp</a>
+        <div class="addr">
+          <strong>Address:</strong> 13 No. Sandelerbil Uttar Colony, Post Amberia, PS Hingalganj, North 24 Parganas, West Bengal, PIN 743435<br>
+          Near Uttar Colony Flood Centre
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>&copy; 2026 Rajib Digital Centre. Your Online Service Partner.</footer>
+</div>
+
+<dialog id="dlg" aria-labelledby="dt">
+  <div class="dh"><h3 id="dt"></h3><button class="x" type="button" id="cl" aria-label="Close">&times;</button></div>
+  <div class="docs" id="docs" hidden></div>
+  <form id="frm"></form>
+</dialog>
+
+<script>
+var WA="919564185647";
+// field: [label, type, options-or-null, optional?]
+var T="text",N="tel",M="number",D="date",A="area",S="sel";
+function gen(extra){return [["What do you need?",A,null],["Details / notes",A,null,1]].slice(0,extra?2:1)}
+var items=[
+ {g:"q",i:"📱",t:"Mobile Recharge",f:[["Mobile number to recharge",N],["Operator",S,["Jio","Airtel","Vi (Vodafone Idea)","BSNL","Other"]],["Amount (₹)",M]]},
+ {g:"q",i:"💡",t:"Electricity Bill Payment",f:[["Consumer number",T],["Name on the bill",T],["Amount (₹), if known",M,null,1]]},
+ {g:"q",i:"🔥",t:"Gas Bill Payment",f:[["Consumer / LPG ID",T],["Gas company",T],["Amount (₹), if known",M,null,1]]},
+ {g:"q",i:"🛡️",t:"LIC Premium Payment",f:[["Policy number",T],["Policyholder name",T],["Premium amount (₹)",M]]},
+ {g:"q",i:"🚆",t:"Railway Ticket Booking",f:[["From station",T],["To station",T],["Travel date",D],["Passengers (names and ages)",A],["Class",S,["Sleeper","3AC","2AC","Chair Car","General","Any"]]]},
+ {g:"q",i:"🖨️",t:"Print / Scan / Lamination",f:[["Service",S,["Print","Scan","Photocopy","Lamination"]],["Number of pages / copies",M],["Details",A,null,1]]},
+ {g:"c",i:"🪪",t:"Aadhaar Card",f:[["What do you need?",S,["Update details","Download / print","Mobile number link","Other"]],["Details",A,null,1]]},
+ {g:"c",i:"🗳️",t:"Voter Card",f:[["What do you need?",S,["New card","Correction","Download / print","Other"]],["Details",A,null,1]]},
+ {g:"c",i:"🌾",t:"Ration Card",f:[["What do you need?",S,["New card","Add / remove member","Correction","Other"]],["Details",A,null,1]]},
+ {g:"c",i:"💳",t:"PAN Card",f:[["What do you need?",S,["New PAN","Correction","Reprint / download","Link with Aadhaar"]],["Details",A,null,1]]},
+ {g:"c",i:"👷",t:"Shramik (Labour) Card",f:[["What do you need?",S,["New card","Renewal","Other"]],["Details",A,null,1]]},
+ {g:"c",i:"👴",t:"Old Age Pension Card",f:gen(1)},
+ {g:"c",i:"🧑‍🌾",t:"Kisan Card",f:gen(1)},
+ {g:"c",i:"🎓",t:"Student ID Card",f:[["Student name",T],["School / college",T],["Details",A,null,1]]},
+ {g:"c",i:"🏥",t:"Ayushman Bharat Card",f:gen(1)},
+ {g:"c",i:"🏛️",t:"Panchayat Tax Payment",f:[["Panchayat name",T],["Holding / assessment number",T],["Amount (₹), if known",M,null,1]]},
+ {g:"c",i:"🌱",t:"Land Tax (Khatian / Record)",f:[["Mouza / village",T],["Khatian or plot number",T],["Details",A,null,1]]},
+ {g:"c",i:"📄",t:"Land Porcha / Mutation",f:[["Mouza / village",T],["Khatian or plot number",T],["What do you need?",S,["Porcha copy","Mutation","Other"]]]},
+ {g:"c",i:"🗺️",t:"Land Information (Khatian)",f:[["Mouza / village",T],["Khatian or plot number",T,null,1],["Details",A,null,1]]},
+ {g:"c",i:"🏪",t:"Trade License",f:[["Shop / business name",T],["Type of business",T],["Business address",A]]},
+ {g:"c",i:"👶",t:"Birth and Death Certificate",f:[["Certificate type",S,["Birth","Death"]],["Name of person",T],["Date of birth / death",D],["Place",T]]},
+ {g:"d",i:"✍️",t:"Any Online Form Fill-up",f:[["Which form?",T],["Details / last date",A,null,1]]},
+ {g:"d",i:"📑",t:"PDF Create / Edit",f:[["What do you need?",A]]},
+ {g:"d",i:"🖨️",t:"Print Online Application",f:[["Application name / number",T],["Copies",M]]},
+ {g:"d",i:"✉️",t:"Send Email",f:[["Send to (email)",T],["What to send",A]]},
+ {g:"d",i:"🖼️",t:"Passport Size Photo Print",f:[["Number of copies",M],["Size",S,["Passport","Stamp","Other"]]]},
+ {g:"d",i:"💬",t:"Send Documents on WhatsApp",f:[["Send to (number)",N],["Which documents?",A]]},
+ {g:"d",i:"☁️",t:"Document Upload",f:[["Where to upload",T],["Which documents?",A]]},
+ {g:"d",i:"🧾",t:"Make Biodata / CV",f:[["Details you want included",A]]},
+ {g:"d",i:"🧭",t:"Help With Any Online Service",f:[["How can we help?",A]]},
+ {g:"s",i:"🍚",t:"Annapurna Yojana",docs:["Aadhaar card of all family members","Voter card of all family members","Caste certificate"],f:[["Family members",M],["Caste certificate available?",S,["Yes","No"]],["Details",A,null,1]]}
+];
+var dlg=document.getElementById("dlg"),frm=document.getElementById("frm"),dt=document.getElementById("dt"),dd=document.getElementById("docs"),cur=null;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+items.forEach(function(it,ix){
+  var b=document.createElement("button");b.type="button";b.className="card "+(it.g==="q"?"q":it.g==="s"?"s":"");
+  b.innerHTML='<span class="ic" aria-hidden="true">'+it.i+'</span><span>'+esc(it.t)+'</span>';
+  b.onclick=function(){openForm(ix)};
+  document.getElementById("g-"+it.g).appendChild(b);
+});
+function openForm(ix){
+  cur=items[ix];dt.textContent=cur.t;
+  if(cur.docs){dd.hidden=false;dd.innerHTML="<h4>Documents to bring</h4><ol>"+cur.docs.map(function(d){return"<li>"+esc(d)+"</li>"}).join("")+"</ol>"}else{dd.hidden=true;dd.innerHTML=""}
+  var h='<label>Your name<input name="Name" required autocomplete="name"></label>';
+  cur.f.forEach(function(f,i){
+    var req=f[3]?"":" required",l=esc(f[0]),n="f"+i,inp;
+    if(f[1]===A)inp='<textarea name="'+n+'"'+req+'></textarea>';
+    else if(f[1]===S)inp='<select name="'+n+'"'+req+'><option value="">Select</option>'+f[2].map(function(o){return'<option>'+esc(o)+'</option>'}).join("")+'</select>';
+    else inp='<input name="'+n+'" type="'+(f[1]===M?"number":f[1]===D?"date":f[1]===N?"tel":"text")+'"'+(f[1]===M?' min="0" inputmode="numeric"':"")+req+'>';
+    h+='<label>'+l+inp+'</label>';
+  });
+  h+='<button class="btn" type="submit">Send to WhatsApp</button><p class="hint">WhatsApp will open with your details filled in. Press Send there to finish.</p>';
+  frm.innerHTML=h;
+  if(dlg.showModal)dlg.showModal();else dlg.setAttribute("open","");
+}
+frm.onsubmit=function(e){
+  e.preventDefault();
+  var fd=new FormData(frm),m="*New request - Rajib Digital Centre*%0A*Service:* "+encodeURIComponent(cur.t)+"%0A*Name:* "+encodeURIComponent(fd.get("Name"));
+  cur.f.forEach(function(f,i){var v=(fd.get("f"+i)||"").toString().trim();if(v)m+="%0A*"+encodeURIComponent(f[0])+":* "+encodeURIComponent(v)});
+  var url="https://wa.me/"+WA+"?text="+m;
+  frm.innerHTML='<p style="margin:0;font-weight:600">Opening WhatsApp with your details...</p>'
+    +'<p class="hint">In WhatsApp, just press the Send button to give us your details. If WhatsApp did not open, tap the green button below.</p>'
+    +'<a class="btn" href="'+url+'" target="_blank" rel="noopener" style="text-align:center">Open WhatsApp and Send</a>'
+    +'<button class="btn alt" type="button" id="cl2">Close</button>';
+  document.getElementById("cl2").onclick=function(){dlg.close()};
+  var w=null;
+  try{w=window.open(url,"_blank")}catch(err){}
+  if(!w){try{window.top.location.href=url}catch(err){}}
+};
+document.getElementById("cl").onclick=function(){dlg.close()};
+dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close()});
+</script>
+</body>
+</html>
