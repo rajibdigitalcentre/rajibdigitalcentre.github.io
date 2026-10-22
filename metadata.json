@@ -1,6 +1,0 @@
-{
-  "name": "Rajib Digital Centre",
-  "description": "Online service partner for forms, Aadhaar, PAN, voter card, recharge, and government schemes including Agristack ID in Amberia, Hingalganj.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
