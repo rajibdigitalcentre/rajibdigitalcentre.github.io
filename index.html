@@ -247,8 +247,8 @@ const waBase="https://wa.me/"+WHATSAPP;
 $("#yr").textContent=new Date().getFullYear();
 $("#flogo").src=document.querySelector(".logo img").src;
 
-$("#serviceGrid").innerHTML=SERVICES.map((s,n)=>`<button class="box" data-s="${n}"><div class="ico">${s.i}</div><h3>${esc(s.t)}</h3><span>${esc(s.d)}</span><b>${esc(s.b||"Apply now")}</b></button>`).join("");
-$("#schemeGrid").innerHTML=SCHEMES.map((s,n)=>`<button class="box scheme" data-c="${n}"><div class="ico">${s.i}</div><h3>${esc(s.t)}</h3><span>${esc(s.d)}</span><ul>${s.docs.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><span>${esc(s.more||"")}</span><b>Apply now</b></button>`).join("");
+$("#serviceGrid").innerHTML=SERVICES.map((s,n)=>`<button class="box" data-s="${n}"><div class="ico"><img   src="${n===0?'./images/annapurna.png':'./images/agristack.png'}"   alt="${esc(s.t)}"   style="width:48px;height:48px;object-fit:contain;" /></div><h3>${esc(s.t)}</h3><span>${esc(s.d)}</span><b>${esc(s.b||"Apply now")}</b></button>`).join("");
+$("#schemeGrid").innerHTML=SCHEMES.map((s,n)=>`<button class="box scheme" data-c="${n}"><div class="ico"><img   src="${n===0?'./images/annapurna.png':'./images/agristack.png'}"   alt="${esc(s.t)}"   style="width:48px;height:48px;object-fit:contain;" /></div><h3>${esc(s.t)}</h3><span>${esc(s.d)}</span><ul>${s.docs.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><span>${esc(s.more||"")}</span><b>Apply now</b></button>`).join("");
 
 function field(f,k){
   const [lab,type,opts]=f,id="f"+k;
