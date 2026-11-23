@@ -432,5 +432,35 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
   })();
 })();
 </script>
+    <!-- All your existing HTML content, services, and footer end here -->
+
+  <!-- Paste this script block right before your closing </body> tag -->
+  <script type="module">
+    // 1. Import the Firebase SDKs from the CDN
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // 2. PASTE YOUR FIREBASE CONFIG OBJECT HERE
+    const firebaseConfig = {
+      apiKey: "AIzaSy...", // Replace with your actual API key
+      authDomain: "rajib-digital-centre.firebaseapp.com",
+      projectId: "rajib-digital-centre",
+      storageBucket: "rajib-digital-centre.firebasestorage.app",
+      messagingSenderId: "400866818079",
+      appId: "1:400866818079:web:..." // Replace with your actual App ID
+    };
+
+    // 3. Initialize Firebase services
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // 4. Your interactive JavaScript click handlers and logic go here...
+
+  </script>
+</body>
+</html>
+
 </body>
 </html>
