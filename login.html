@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAJIB DIGITAL CENTRE - লগইন</title>
+  <style>
+    * { box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
+    body {
+      background: #f3f4f6;
+      margin: 0;
+      padding: 24px 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 400px;
+      padding: 24px;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    h2 { margin: 0 0 6px; font-size: 1.35rem; color: #111827; text-align: center; }
+    .subtitle { margin: 0 0 18px; font-size: 0.88rem; color: #6b7280; text-align: center; }
+    .tabs {
+      display: flex;
+      gap: 6px;
+      background: #f3f4f6;
+      padding: 4px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+    }
+    .tab-btn {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 8px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      color: #4b5563;
+    }
+    .tab-btn.active {
+      background: #ffffff;
+      color: #1d4ed8;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    input {
+      width: 100%;
+      padding: 11px 12px;
+      margin: 6px 0;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+    input:focus { outline: none; border-color: #2563eb; }
+    button.primary {
+      width: 100%;
+      padding: 11px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+    button.primary:hover { background: #1d4ed8; }
+    button.secondary {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      background: #fff;
+      color: #111827;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    button.secondary:hover { background: #f9fafb; }
+    .divider {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin: 14px 0 6px;
+    }
+    .hidden { display: none; }
+    #status {
+      margin-top: 12px;
+      font-size: 0.88rem;
+      text-align: center;
+      color: #dc2626;
+      min-height: 20px;
+    }
+    #recaptcha-container {
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+    }
+    .dashboard { text-align: center; }
+    .user-badge {
+      background: #eff6ff;
+      color: #1e40af;
+      padding: 10px;
+      border-radius: 8px;
+      margin: 14px 0;
+      word-break: break-all;
+      font-size: 0.9rem;
+    }
+    .logout-btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #dc2626;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <!-- লগইন ও রেজিস্ট্রেশন সেকশন -->
+    <div id="auth-section">
+      <h2>RAJIB DIGITAL CENTRE</h2>
+      <p class="subtitle">আপনার অ্যাকাউন্টে লগইন করুন</p>
+
+      <div class="tabs">
+        <button type="button" class="tab-btn active" id="tab-email">ইমেইল / পাসওয়ার্ড</button>
+        <button type="button" class="tab-btn" id="tab-phone">ফোন OTP</button>
+      </div>
+
+      <!-- Email / Password Form -->
+      <div id="email-form">
+        <input type="email" id="email" placeholder="ইমেইল ঠিকানা লিখুন" />
+        <input type="password" id="password" placeholder="পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)" />
+        <button type="button" class="primary" id="login-btn">লগইন করুন</button>
+        <button type="button" class="secondary" id="signup-btn">নতুন অ্যাকাউন্ট তৈরি করুন</button>
+      </div>
+
+      <!-- Phone OTP Form -->
+      <div id="phone-form" class="hidden">
+        <div id="phone-step-1">
+          <input type="tel" id="phone-input" placeholder="+91 98765 43210" />
+          <div id="recaptcha-container"></div>
+          <button type="button" class="primary" id="send-otp-btn">OTP পাঠান</button>
+        </div>
+
+        <div id="phone-step-2" class="hidden">
+          <p class="subtitle" style="margin-bottom:8px;">OTP পাঠানো হয়েছে: <strong id="sent-phone"></strong></p>
+          <input type="text" id="otp-input" placeholder="৬ ডিজিটের OTP লিখুন" maxlength="6" />
+          <button type="button" class="primary" id="verify-otp-btn">OTP যাচাই ও লগইন</button>
+          <button type="button" class="secondary" id="change-phone-btn">নম্বর পরিবর্তন করুন</button>
+        </div>
+      </div>
+
+      <div class="divider">অথবা</div>
+      <button type="button" class="secondary" id="google-btn">Google দিয়ে লগইন করুন</button>
+
+      <p id="status"></p>
+    </div>
+
+    <!-- লগইন হওয়ার পর ড্যাশবোর্ড -->
+    <div id="dashboard-section" class="dashboard hidden">
+      <h2>স্বাগতম!</h2>
+      <p class="subtitle">আপনি সফলভাবে লগইন করেছেন</p>
+      <div class="user-badge" id="user-info"></div>
+      <button type="button" class="logout-btn" id="logout-btn">লগআউট করুন</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      GoogleAuthProvider,
+      signInWithPopup,
+      RecaptchaVerifier,
+      signInWithPhoneNumber,
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyA7Fn3sXqXxLH37LFr47XEOdcbWNE5LiMw",
+      authDomain: "rajib-digital-centre.firebaseapp.com",
+      projectId: "rajib-digital-centre",
+      storageBucket: "rajib-digital-centre.firebasestorage.app",
+      messagingSenderId: "400866818079",
+      appId: "1:400866818079:web:d3686ec90fdcdc780b7d2a",
+      measurementId: "G-7E2DXWT8M2"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const googleProvider = new GoogleAuthProvider();
+
+    // UI Elements
+    const authSection = document.getElementById("auth-section");
+    const dashboardSection = document.getElementById("dashboard-section");
+    const tabEmail = document.getElementById("tab-email");
+    const tabPhone = document.getElementById("tab-phone");
+    const emailForm = document.getElementById("email-form");
+    const phoneForm = document.getElementById("phone-form");
+    const phoneStep1 = document.getElementById("phone-step-1");
+    const phoneStep2 = document.getElementById("phone-step-2");
+    const statusEl = document.getElementById("status");
+    const userInfoEl = document.getElementById("user-info");
+
+    let confirmationResult = null;
+    let recaptchaVerifier = null;
+
+    function setStatus(msg, isSuccess = false) {
+      statusEl.style.color = isSuccess ? "#15803d" : "#dc2626";
+      statusEl.textContent = msg;
+    }
+
+    function initRecaptcha() {
+      if (!recaptchaVerifier) {
+        recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container", {
+          size: "normal"
+        });
+        recaptchaVerifier.render();
+      }
+    }
+
+    // Tab Switching
+    tabEmail.addEventListener("click", () => {
+      tabEmail.classList.add("active");
+      tabPhone.classList.remove("active");
+      emailForm.classList.remove("hidden");
+      phoneForm.classList.add("hidden");
+      setStatus("");
+    });
+
+    tabPhone.addEventListener("click", () => {
+      tabPhone.classList.add("active");
+      tabEmail.classList.remove("active");
+      phoneForm.classList.remove("hidden");
+      emailForm.classList.add("hidden");
+      setStatus("");
+      initRecaptcha();
+    });
+
+    // Email Sign Up
+    document.getElementById("signup-btn").addEventListener("click", async () => {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      setStatus("");
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        setStatus("অ্যাকাউন্ট তৈরি সফল হয়েছে!", true);
+      } catch (err) {
+        setStatus(err.message);
+      }
+    });
+
+    // Email Log In
+    document.getElementById("login-btn").addEventListener("click", async () => {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      setStatus("");
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        setStatus("");
+      } catch (err) {
+        setStatus(err.message);
+      }
+    });
+
+    // Google Log In
+    document.getElementById("google-btn").addEventListener("click", async () => {
+      setStatus("");
+      try {
+        await signInWithPopup(auth, googleProvider);
+      } catch (err) {
+        setStatus(err.message);
+      }
+    });
+
+    // Send Phone OTP
+    document.getElementById("send-otp-btn").addEventListener("click", async () => {
+      setStatus("");
+      initRecaptcha();
+      const raw = document.getElementById("phone-input").value.replace(/\s+/g, "");
+      const phoneNumber = raw.startsWith("+") ? raw : `+91${raw}`;
+      try {
+        confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier);
+        document.getElementById("sent-phone").textContent = phoneNumber;
+        phoneStep1.classList.add("hidden");
+        phoneStep2.classList.remove("hidden");
+        setStatus("OTP পাঠানো হয়েছে।", true);
+      } catch (err) {
+        setStatus(err.message);
+      }
+    });
+
+    // Verify OTP
+    document.getElementById("verify-otp-btn").addEventListener("click", async () => {
+      setStatus("");
+      const code = document.getElementById("otp-input").value.trim();
+      if (!confirmationResult) {
+        setStatus("আগে OTP পাঠান।");
+        return;
+      }
+      try {
+        await confirmationResult.confirm(code);
+      } catch (err) {
+        setStatus("ভুল অথবা মেয়াদোত্তীর্ণ OTP। আবার চেষ্টা করুন।");
+      }
+    });
+
+    // Change Phone Number
+    document.getElementById("change-phone-btn").addEventListener("click", () => {
+      phoneStep2.classList.add("hidden");
+      phoneStep1.classList.remove("hidden");
+      document.getElementById("otp-input").value = "";
+      setStatus("");
+    });
+
+    // Log Out
+    document.getElementById("logout-btn").addEventListener("click", () => {
+      signOut(auth);
+    });
+
+    // Auth State Listener
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        authSection.classList.add("hidden");
+        dashboardSection.classList.remove("hidden");
+        userInfoEl.textContent = user.email || user.phoneNumber || user.uid;
+      } else {
+        dashboardSection.classList.add("hidden");
+        authSection.classList.remove("hidden");
+      }
+    });
+  </script>
+</body>
+</html>
