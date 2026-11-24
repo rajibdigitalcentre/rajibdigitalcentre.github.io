@@ -1,5 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"><style>
+  /* Login check na howa porjonto page lukiye rakhbe */
+  body { display: none; }
+</style>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyA7Fn3sXqXxLH37LFr47XEOdcbWNE5LiMw",
+    authDomain: "rajib-digital-centre.firebaseapp.com",
+    projectId: "rajib-digital-centre",
+    storageBucket: "rajib-digital-centre.firebasestorage.app",
+    messagingSenderId: "400866818079",
+    appId: "1:400866818079:web:d3686ec90fdcdc780b7d2a",
+    measurementId: "G-7E2DXWT8M2"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User login kora ache, tai website dekhao
+      document.body.style.display = "block";
+    } else {
+      // Login kora nei, tai login page-e pathiye dao
+      window.location.replace("login.html");
+    }
+  });
+
+  // Logout button-er jonno function
+  window.logoutUser = () => {
+    signOut(auth).then(() => {
+      window.location.replace("login.html");
+    });
+  };
+</script>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
