@@ -2,15 +2,18 @@
 
 ## Update GitHub Pages
 
-Extract this ZIP. If your repository already uses `RDC_Admin_Dashboard_Final.zip`, replace these four files at the repository root in the same commit:
+If the previous Counter redesign is already deployed, extract the ZIP and replace these seven files in one commit. Keep the two Printing Studio pages in the existing `printing/` folder.
 
 - `index.html`
-- `rdc-admin.css`
-- `rdc-ui.css`
+- `login.html`
+- `counter.css`
+- `counter.js`
 - `rdc-motion.js`
+- `printing/aadhaar-print.html`
+- `printing/pvc.html`
 
-For an earlier version, also upload `login.html`, `rdc-redesign.css`, `skiper-components.js`, and the complete `printing/` folder from the ZIP. Keep the repository’s existing CNAME and favicon files.
+If the repository uses an older version, upload the complete website contents and keep the repository’s existing CNAME and favicon files.
 
-After GitHub Pages deploys the update, sign in as Admin. Switch between the dashboard sections, collapse and reopen Menu, and open Profile to see the transitions. The sidebar adapts to desktop and mobile layouts. The dashboard follows the device’s reduced-motion setting.
+After deployment, check Sign in and Sign up, the Overview and Services pages, the service finder and application form, My Requests, the profile dialog, Admin sections and Printing Studio. The website follows the device’s Reduced Motion preference.
 
-The Analytics period applies to Analytics. Overview totals include all requests. The calendar uses India time. Admin access and request data continue to come from the configured Firebase project.
+Admin access and request data come from the existing Firebase project. Printing Studio keeps its existing authorization and local processing.
